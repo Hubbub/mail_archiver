@@ -1,0 +1,16 @@
+MaildirStore local
+Path $user
+
+IMAPStore gmail
+Host imap.gmail.com
+User $user
+UseIMAPS yes
+CertificateFile ~/gmail.pem
+CertificateFile /usr/share/ca-certificates/mozilla/Thawte_Premium_Server_CA.crt
+
+Channel archive
+Master ":gmail:[Gmail]/All Mail"
+Slave :local:gmail
+Sync PullNew
+Create Slave
+SyncState *
